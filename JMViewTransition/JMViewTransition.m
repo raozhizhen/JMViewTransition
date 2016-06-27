@@ -48,6 +48,8 @@
         UIImageView *startImageView = [[UIImageView alloc] initWithFrame:startFrame];
         CGFloat scale = MAX(endView.frame.size.width / _startView.frame.size.width, endView.frame.size.height / _startView.frame.size.width);
         startImageView.image = [self getImageFromView:endView scale:scale];
+        startImageView.contentMode = UIViewContentModeScaleAspectFill;
+        startImageView.clipsToBounds = YES;
         _startView.hidden = YES;
         endView.hidden = YES;
         [contView addSubview:_secondVC.view];
@@ -76,7 +78,8 @@
         
         CGFloat scale = MAX(_startView.frame.size.width / endView.frame.size.width, _startView.frame.size.width / endView.frame.size.height);
         startImageView.image = [self getImageFromView:endView scale:scale];
-        
+        startImageView.contentMode = UIViewContentModeScaleAspectFill;
+        startImageView.clipsToBounds = YES;
         _startView.hidden = YES;
         endView.hidden = YES;
         [contView addSubview:_secondVC.view];
